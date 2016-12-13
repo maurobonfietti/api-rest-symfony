@@ -23,7 +23,7 @@ class LoadUserData implements FixtureInterface
         $names = array(
             'Luis', 'Silvia', 'Mauro', 'Mateo', 'Gisela', 'Cesar', 
             'Laura', 'Ignacio', 'Ángel', 'Mirta', 'Antonio', 
-            'Yolanda', 'Ana',
+            'Yolanda', 'Ana', 'Elso', 'Erondina'
         );
         return $names[array_rand($names)];
     }

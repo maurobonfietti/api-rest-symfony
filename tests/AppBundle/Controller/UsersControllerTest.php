@@ -3,7 +3,6 @@
 namespace Tests\AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class UsersControllerTest extends WebTestCase
 {
@@ -64,5 +63,4 @@ class UsersControllerTest extends WebTestCase
             $client->getResponse()->headers->contains('Content-Type', 'application/json')
         );
     }
-
 }
