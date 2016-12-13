@@ -65,19 +65,4 @@ class UsersControllerTest extends WebTestCase
         );
     }
 
-    public function testUploadImage()
-    {
-        $photo = new UploadedFile(
-            'sw.jpg', 'sw.jpg', 'image/jpeg', 123
-        );
-        $client = static::createClient();
-        $client->request(
-            'POST', '/users/upload/1', array('file' => $photo), array('file' => $photo)
-        );
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('correctamente', $client->getResponse()->getContent());
-        $this->assertTrue(
-            $client->getResponse()->headers->contains('Content-Type', 'application/json')
-        );
-    }
 }
