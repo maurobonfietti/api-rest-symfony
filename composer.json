@@ -1,5 +1,5 @@
 {
-    "name": "mauro/olx0.1.2",
+    "name": "api-rest-symfony",
     "license": "proprietary",
     "type": "project",
     "autoload": {

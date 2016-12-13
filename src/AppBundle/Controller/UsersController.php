@@ -82,37 +82,6 @@ class UsersController extends FOSRestController
     }
 
     /**
-     * @Rest\Post("/users/upload/{id}")
-     */
-    public function uploadAction($id, Request $request)
-    {
-        $user = $this->getDoctrine()->getRepository('AppBundle:Users')->find($id);
-        if (empty($user)) {
-            return new View('El usuario solicitado no existe.', Response::HTTP_NOT_FOUND);
-        }
-        if (!$request->files->get('file')) {
-            return new View('Ingrese la imagen.', Response::HTTP_NOT_FOUND);
-        }
-        if ($request->files->get('file')->getClientOriginalExtension() !== 'jpg' && $request->files->get('file')->getClientOriginalExtension() !== 'gif') {
-            return new View('Ingrese una imagen en formato jpg o gif.', Response::HTTP_NOT_FOUND);
-        }
-        $filename = $request->files->get('file')->getPathname();
-        $uploadfile = sprintf('/tmp/%s', $request->files->get('file')->getClientOriginalName());
-        copy($filename, $uploadfile);
-        // Reemplazar el uso de shell_exec.
-        $result = shell_exec("curl -s -XPOST https://api.olx.com/v1.0/users/images -F 'file=@$uploadfile'");
-        unlink($uploadfile);
-        $response = json_decode($result);
-        if (!isset($response->url)) {
-            return new View('La imagen no se pudo actualizar.', Response::HTTP_NOT_ACCEPTABLE);
-        }
-        $user->setPicture('https://images01.olx-st.com/'.$response->url);
-        $this->getDoctrine()->getManager()->flush();
-
-        return new View('La imagen fue actualizada correctamente.', Response::HTTP_OK);
-    }
-
-    /**
      * @Rest\Delete("/users/{id}")
      */
     public function deleteAction($id)
