@@ -43,7 +43,7 @@ class UsersControllerTest extends WebTestCase
     public function testUpdateUser()
     {
         $client = static::createClient();
-        $client->request('PUT', '/users/1', array('name' => 'Juan'));
+        $client->request('PUT', '/users/1', array('name' => 'Marcos'));
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertContains('correctamente', $client->getResponse()->getContent());
