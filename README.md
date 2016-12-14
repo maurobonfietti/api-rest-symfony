@@ -41,7 +41,7 @@ $ curl -X POST http://localhost:8000/users/ -d '{"name":"Luis"}' -H 'Content-Typ
 
 - Actualizar Usuario:
 ```
-$ curl -X PUT http://localhost:8000/users/1 -d '{"name":"Lucas","address":"San Martin 2020, Rosario."}' -H 'Content-Type: application/json'
+$ curl -X PUT http://localhost:8000/users/1 -d '{"name":"Lucas","email":"lucas@gmail.com"}' -H 'Content-Type: application/json'
 ```
 
 

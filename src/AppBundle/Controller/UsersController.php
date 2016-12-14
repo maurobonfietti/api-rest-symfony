@@ -43,13 +43,13 @@ class UsersController extends FOSRestController
     public function postAction(Request $request)
     {
         $name = $request->request->get('name');
-        $address = $request->request->get('address');
+        $email = $request->request->get('email');
         if (empty($name)) {
             return new View('Ingrese el nombre del usuario.', Response::HTTP_NOT_ACCEPTABLE);
         }
         $data = new Users();
         $data->setName($name);
-        $data->setAddress($address);
+        $data->setEmail($email);
         $em = $this->getDoctrine()->getManager();
         $em->persist($data);
         $em->flush();
@@ -62,18 +62,18 @@ class UsersController extends FOSRestController
      */
     public function updateAction($id, Request $request)
     {
-        $name = $request->request->get('name');
-        $address = $request->request->get('address');
         $user = $this->getDoctrine()->getRepository('AppBundle:Users')->find($id);
         if (empty($user)) {
             return new View('El usuario solicitado no existe.', Response::HTTP_NOT_FOUND);
         }
+        $name = $request->request->get('name');
         if (empty($name)) {
             return new View('Ingrese el nombre del usuario.', Response::HTTP_NOT_ACCEPTABLE);
         }
         $user->setName($name);
-        if ($address) {
-            $user->setAddress($address);
+        $email = $request->request->get('email');
+        if ($email) {
+            $user->setEmail($email);
         }
         $em = $this->getDoctrine()->getManager();
         $em->flush();

@@ -31,9 +31,9 @@ class Users
     /**
      * @var string
      *
-     * @ORM\Column(name="address", type="text", nullable=true)
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
      */
-    private $address;
+    private $email;
 
     /**
      * Get id.
@@ -70,26 +70,26 @@ class Users
     }
 
     /**
-     * Set address.
+     * Set email.
      *
-     * @param string $address
+     * @param string $email
      *
      * @return Users
      */
-    public function setAddress($address)
+    public function setEmail($email)
     {
-        $this->address = $address;
+        $this->email = $email;
 
         return $this;
     }
 
     /**
-     * Get address.
+     * Get email.
      *
      * @return string
      */
-    public function getAddress()
+    public function getEmail()
     {
-        return $this->address;
+        return $this->email;
     }
 }
