@@ -44,7 +44,7 @@ class Users implements FixtureInterface
             'gmail.com', 'hotmail.com', 'arnet.com.ar', $names[1].'.com', $names[1].'.com.ar',
         );
 
-        switch (mt_rand(1, 7)) {
+        switch (mt_rand(1, 10)) {
             case 1:
                 return sprintf('%s@%s', str_replace(' ', '', $name), $emails[array_rand($emails)]);
             case 2:

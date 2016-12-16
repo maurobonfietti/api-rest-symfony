@@ -1,9 +1,9 @@
 # api-rest-symfony
 
-Api Rest With Symfony...
+Ejemplo de Api Rest hecha con Symfony...
 
 
-## HOW TO INSTALL:
+## INSTALACIÓN:
 
 En la ruta preferida, descargar el proyecto:
 
