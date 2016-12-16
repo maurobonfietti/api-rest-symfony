@@ -9,7 +9,7 @@ class Users implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        for ($i = 1; $i <= 25; ++$i) {
+        for ($i = 1; $i <= 30; ++$i) {
             $data = new \AppBundle\Entity\Users();
             $name = $this->getRandomName();
             $data->setName($name);
@@ -21,24 +21,27 @@ class Users implements FixtureInterface
 
     private function getRandomName()
     {
-        $names = array(
-            'Luis', 'Silvia', 'Mauro', 'Mateo', 'Gisela', 'Cesar',
-            'Laura', 'Ignacio', 'Angel', 'Mirta', 'Antonio',
-            'Yolanda', 'Ana', 'Elso', 'Erondina',
+        $firstName = array(
+            'Luis', 'Silvia', 'Mauro', 'Mateo', 'Gisela', 'Cesar', 'Laura',
+            'Ignacio', 'Angel', 'Mirta', 'Antonio', 'Yolanda', 'Ana', 'Elso',
+            'Erondina', 'Jorge', 'Jose Manuel', 'Francisco', 'Juan', 'David',
+            'Alejandra', 'Luciana', 'Maria', 'Fernanda', 'Pablo', 'Nicolas',
         );
 
-        $names2 = array(
-            'Garcia', 'Gonzalez', 'Rodriguez', 'Fernandez', 'Lopez', 'Martinez',
-            'Sanchez', 'Perez', 'Gomez', 'Diaz', 'Dominguez',
+        $lastName = array(
+            'Garcia', 'Gonzalez', 'Rodriguez', 'Fernandez', 'Lopez', 'Sanchez',
+            'Martinez', 'Perez', 'Gomez', 'Diaz', 'Dominguez', 'Ortiz',
         );
 
-        return $names[array_rand($names)].' '.$names2[array_rand($names2)];
+        return $firstName[array_rand($firstName)].' '.$lastName[array_rand($lastName)];
     }
 
     private function getRandomEmail($name)
     {
+        $names = explode(' ', $name);
+
         $emails = array(
-            'hotmail.com', 'gmail.com', 'example.com',
+            'gmail.com', 'hotmail.com', 'arnet.com.ar', $names[1].'.com', $names[1].'.com.ar',
         );
 
         switch (mt_rand(1, 7)) {
@@ -51,12 +54,10 @@ class Users implements FixtureInterface
             case 4:
                 return sprintf('%s%02s@%s', str_replace(' ', '', $name), mt_rand(0, 99), $emails[array_rand($emails)]);
             case 5:
-                $names = explode(" ", $name);
                 return sprintf('%s.%s@%s', $names[1], $names[0], $emails[array_rand($emails)]);
             case 6:
-                $names = explode(" ", $name);
                 return sprintf('%s%s@%s', $names[0][0], $names[1], $emails[array_rand($emails)]);
-            default :
+            default:
                 return null;
         }
     }
