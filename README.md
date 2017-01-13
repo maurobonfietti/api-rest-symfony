@@ -1,6 +1,6 @@
-# api-rest-symfony
+# API REST SYMFONY
 
-Ejemplo de Api Rest hecha con Symfony...
+Un ejemplo de API REST con Symfony3.
 
 
 ## INSTALACIÓN:
@@ -21,32 +21,37 @@ $ phpunit
 
 ## MODO DE USO:
 
-- Ver Usuarios:
+- Ver usuarios:
 ```
 $ curl http://localhost:8000/users
 ```
 
 
-- Ver Usuario por Id:
+- Ver usuario por Id:
 ```
 $ curl http://localhost:8000/users/1
 ```
 
 
-- Crear Nuevo Usuario:
+- Crear nuevo usuario:
 ```
 $ curl -X POST http://localhost:8000/users/ -d '{"name":"Luis"}' -H 'Content-Type: application/json'
 ```
 
 
-- Actualizar Usuario:
+- Actualizar usuario:
 ```
 $ curl -X PUT http://localhost:8000/users/1 -d '{"name":"Lucas","email":"lucas@gmail.com"}' -H 'Content-Type: application/json'
 ```
 
 
-- Eliminar Usuario:
+- Eliminar usuario:
 ```
 $ curl -X DELETE http://localhost:8000/users/2
 ```
 
+
+- Ver cantidad de usuarios:
+```
+$ curl http://localhost:8000/countusers
+```

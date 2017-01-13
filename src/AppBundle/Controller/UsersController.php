@@ -75,8 +75,7 @@ class UsersController extends FOSRestController
         if ($email) {
             $user->setEmail($email);
         }
-        $em = $this->getDoctrine()->getManager();
-        $em->flush();
+        $this->getDoctrine()->getManager()->flush();
 
         return new View('El usuario fue actualizado correctamente.', Response::HTTP_OK);
     }
@@ -96,5 +95,18 @@ class UsersController extends FOSRestController
         $em->flush();
 
         return new View('El usuario fue eliminado correctamente.', Response::HTTP_OK);
+    }
+
+    /**
+     * @Rest\Get("/countusers")
+     */
+    public function countUsersAction()
+    {
+        $users = $this->getDoctrine()->getRepository('AppBundle:Users')->findAll();
+        if ($users == null) {
+            return new View('Actualmente no hay usuarios.', Response::HTTP_NOT_FOUND);
+        }
+
+        return new View('Cantidad de usuarios: ' . count($users), Response::HTTP_OK);
     }
 }
