@@ -21,13 +21,45 @@ $ phpunit
 
 ## MODO DE USO:
 
-- Ver usuarios:
+
+### Ver usuarios:
+
+PETICIÓN:
 ```
 $ curl http://localhost:8000/users
 ```
 
+RESPUESTA:
+```
+[
+    {
+        "id": 1,
+        "name": "Mago",
+        "email": "marquitos@gmail.com"
+    },
+    {
+        "id": 3,
+        "name": "Mirta García"
+    },
+    {
+        "id": 4,
+        "name": "Ignacio Luna"
+    },
+    {
+        "id": 5,
+        "name": "Antonio Díaz"
+    },
+    {
+        "id": 6,
+        "name": "Mirta Gómez",
+        "email": "mirtagomez74@gomez.com.ar"
+    }
+]
+```
 
-- Ver usuario por Id:
+
+### Ver usuario por Id:
+
 ```
 $ curl http://localhost:8000/users/1
 ```
