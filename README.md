@@ -18,18 +18,16 @@ $ php bin/console server:start
 $ phpunit
 ```
 
+===
 
 ## MODO DE USO:
 
 
 ### Ver usuarios:
-
-PETICIÓN:
 ```
 $ curl http://localhost:8000/users
 ```
-
-RESPUESTA:
+Respuesta:
 ```
 [
     {
@@ -59,31 +57,61 @@ RESPUESTA:
 
 
 ### Ver usuario por Id:
-
 ```
-$ curl http://localhost:8000/users/1
+$ curl http://localhost:8000/users/3
+```
+Respuesta:
+```
+{
+    "id": 3,
+    "name": "Mirta García"
+}
 ```
 
 
-- Crear nuevo usuario:
+### Crear nuevo usuario:
 ```
 $ curl -X POST http://localhost:8000/users/ -d '{"name":"Luis"}' -H 'Content-Type: application/json'
 ```
+Respuesta:
+```
+Status: 200 OK
+
+"El usuario fue creado correctamente."
+```
 
 
-- Actualizar usuario:
+### Actualizar usuario:
 ```
 $ curl -X PUT http://localhost:8000/users/1 -d '{"name":"Lucas","email":"lucas@gmail.com"}' -H 'Content-Type: application/json'
 ```
+Respuesta:
+```
+Status: 200 OK
+
+"El usuario fue actualizado correctamente."
+```
 
 
-- Eliminar usuario:
+### Eliminar usuario:
 ```
 $ curl -X DELETE http://localhost:8000/users/2
 ```
+Respuesta:
+```
+Status: 200 OK
+
+"El usuario fue eliminado correctamente."
+```
 
 
-- Ver cantidad de usuarios:
+### Ver cantidad de usuarios:
 ```
 $ curl http://localhost:8000/countusers
+```
+Respuesta:
+```
+Status: 200 OK
+
+"Cantidad de usuarios: 32"
 ```
