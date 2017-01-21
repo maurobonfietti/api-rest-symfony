@@ -12,6 +12,19 @@ use AppBundle\Entity\Users;
 class UsersController extends FOSRestController
 {
     /**
+     * @Rest\Get("/users/count")
+     */
+    public function countUsersAction()
+    {
+        $users = $this->getDoctrine()->getRepository('AppBundle:Users')->findAll();
+        if ($users == null) {
+            return new View('Actualmente no hay usuarios.', Response::HTTP_NOT_FOUND);
+        }
+
+        return new View('Cantidad de usuarios: '.count($users), Response::HTTP_OK);
+    }
+
+    /**
      * @Rest\Get("/users")
      */
     public function getAction()
@@ -95,18 +108,5 @@ class UsersController extends FOSRestController
         $em->flush();
 
         return new View('El usuario fue eliminado correctamente.', Response::HTTP_OK);
-    }
-
-    /**
-     * @Rest\Get("/countusers")
-     */
-    public function countUsersAction()
-    {
-        $users = $this->getDoctrine()->getRepository('AppBundle:Users')->findAll();
-        if ($users == null) {
-            return new View('Actualmente no hay usuarios.', Response::HTTP_NOT_FOUND);
-        }
-
-        return new View('Cantidad de usuarios: ' . count($users), Response::HTTP_OK);
     }
 }

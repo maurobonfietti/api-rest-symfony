@@ -129,7 +129,7 @@ Status: 200 OK
 
 ### Ver cantidad de usuarios:
 ```
-$ curl http://localhost:8000/countusers
+$ curl http://localhost:8000/users/count
 ```
 Respuesta:
 ```
