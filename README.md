@@ -11,14 +11,27 @@ En la ruta preferida, descargar el proyecto:
 $ git clone https://github.com/maurobonfietti/api-rest-symfony.git
 $ cd api-rest-symfony/
 $ composer install
+```
+
+
+Crear base de datos, actualizar schema y completar con datos de prueba:
+
+```
 $ php bin/console doctrine:database:create
 $ php bin/console doctrine:schema:update --force
 $ php bin/console doctrine:fixtures:load
+```
+
+
+## PRUEBAS:
+
+Dentro de la raíz del proyecto, iniciar el servidor y ejecutar las pruebas con phpunit:
+
+```
 $ php bin/console server:start
 $ phpunit
 ```
 
-===
 
 ## MODO DE USO:
 
@@ -29,6 +42,8 @@ $ curl http://localhost:8000/users
 ```
 Respuesta:
 ```
+Status: 200 OK
+
 [
     {
         "id": 1,
@@ -54,6 +69,7 @@ Respuesta:
     }
 ]
 ```
+===
 
 
 ### Ver usuario por Id:
@@ -62,11 +78,14 @@ $ curl http://localhost:8000/users/3
 ```
 Respuesta:
 ```
+Status: 200 OK
+
 {
     "id": 3,
     "name": "Mirta García"
 }
 ```
+===
 
 
 ### Crear nuevo usuario:
@@ -79,6 +98,7 @@ Status: 200 OK
 
 "El usuario fue creado correctamente."
 ```
+===
 
 
 ### Actualizar usuario:
@@ -91,6 +111,7 @@ Status: 200 OK
 
 "El usuario fue actualizado correctamente."
 ```
+===
 
 
 ### Eliminar usuario:
@@ -103,6 +124,7 @@ Status: 200 OK
 
 "El usuario fue eliminado correctamente."
 ```
+===
 
 
 ### Ver cantidad de usuarios:
@@ -115,3 +137,4 @@ Status: 200 OK
 
 "Cantidad de usuarios: 32"
 ```
+===
