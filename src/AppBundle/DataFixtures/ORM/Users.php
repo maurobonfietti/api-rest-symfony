@@ -5,9 +5,10 @@ namespace AppBundle\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class Users implements FixtureInterface {
-
-    public function load(ObjectManager $manager) {
+class Users implements FixtureInterface
+{
+    public function load(ObjectManager $manager)
+    {
         for ($i = 1; $i <= 30; ++$i) {
             $data = new \AppBundle\Entity\Users();
             $name = $this->getRandomName();
@@ -18,7 +19,8 @@ class Users implements FixtureInterface {
         }
     }
 
-    private function getRandomName() {
+    private function getRandomName()
+    {
         $firstName = array(
             'Luis', 'Silvia', 'Mauro', 'Mateo', 'Gisela', 'César', 'Laura',
             'Ignacio', 'Ángel', 'Mirta', 'Antonio', 'Yolanda', 'Ana', 'Elso',
@@ -31,15 +33,16 @@ class Users implements FixtureInterface {
             'Martínez', 'Pérez', 'Gómez', 'Díaz', 'Domínguez', 'Ortiz',
         );
 
-        return $firstName[array_rand($firstName)] . ' ' . $lastName[array_rand($lastName)];
+        return $firstName[array_rand($firstName)].' '.$lastName[array_rand($lastName)];
     }
 
-    private function getRandomEmail($name) {
+    private function getRandomEmail($name)
+    {
         $regName = $this->convertAccents($name);
         $names = explode(' ', $regName);
 
         $emails = array(
-            'gmail.com', 'hotmail.com', 'arnet.com.ar', $names[1] . '.com', $names[1] . '.com.ar',
+            'gmail.com', 'hotmail.com', 'arnet.com.ar', $names[1].'.com', $names[1].'.com.ar',
         );
 
         switch (mt_rand(1, 10)) {
@@ -60,13 +63,14 @@ class Users implements FixtureInterface {
         }
     }
 
-    private function convertAccents($str) {
-        $preStr  = 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûýýþÿŔŕ';
-        $postStr  = 'aaaaaaaceeeeiiiidnoooooouuuuybsaaaaaaaceeeeiiiidnoooooouuuyybyRr';
+    private function convertAccents($str)
+    {
+        $preStr = 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûýýþÿŔŕ';
+        $postStr = 'aaaaaaaceeeeiiiidnoooooouuuuybsaaaaaaaceeeeiiiidnoooooouuuyybyRr';
         $str = utf8_decode($str);
         $str = strtr($str, utf8_decode($preStr), $postStr);
         $str = strtolower($str);
+
         return utf8_encode($str);
     }
-
 }

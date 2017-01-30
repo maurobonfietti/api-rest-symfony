@@ -138,3 +138,16 @@ Status: 200 OK
 "Cantidad de usuarios: 32"
 ```
 ===
+
+
+### Ver versión de la API:
+```
+$ curl http://localhost:8000/users/count
+```
+Respuesta:
+```
+Status: 200 OK
+
+"Version API: 0.1.2"
+```
+===

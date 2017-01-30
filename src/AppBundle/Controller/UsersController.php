@@ -12,9 +12,17 @@ use AppBundle\Entity\Users;
 class UsersController extends FOSRestController
 {
     /**
+     * @Rest\Get("/version")
+     */
+    public function getVersionAction()
+    {
+        return new View('Version API: 0.1.2', Response::HTTP_OK);
+    }
+
+    /**
      * @Rest\Get("/users/count")
      */
-    public function countUsersAction()
+    public function getCountUsersAction()
     {
         $users = $this->getDoctrine()->getRepository('AppBundle:Users')->findAll();
         if ($users == null) {
