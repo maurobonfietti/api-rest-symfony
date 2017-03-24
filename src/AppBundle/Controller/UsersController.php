@@ -16,7 +16,7 @@ class UsersController extends FOSRestController
      */
     public function getVersionAction()
     {
-        return new View('Version API: 0.1.2', Response::HTTP_OK);
+        return new View('Version API: 0.1.3', Response::HTTP_OK);
     }
 
     /**

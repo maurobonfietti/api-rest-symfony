@@ -22,6 +22,17 @@ $ php bin/console doctrine:schema:update --force
 $ php bin/console doctrine:fixtures:load
 ```
 
+### CONEXIÓN MYSQL:
+Si se observa error al crear/conectar la base de datos, recuerde configurar la conexión MySQL.
+Editar el archivo de configuración: app/config/parameters.yml
+```
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: api-rest-symfony
+    database_user: YourDatabaseUser
+    database_password: YourDatabasePassword
+```
 
 ## PRUEBAS:
 
@@ -30,7 +41,19 @@ Dentro de la raíz del proyecto, iniciar el servidor y ejecutar las pruebas con 
 ```
 $ php bin/console server:start
 $ phpunit
+PHPUnit 5.4.6 by Sebastian Bergmann and contributors.
+
+.....                                                               5 / 5 (100%)
+
+Time: 1.09 seconds, Memory: 14.00Mb
+
+OK (5 tests, 13 assertions)
+
 ```
+
+### NOTA:
+Si todo salió bien, ya se puede comenzar a utilizar la API :-)
+Se puede acceder localmente al proyecto, ingresando a: http://localhost:8000/users
 
 
 ## MODO DE USO:
@@ -142,12 +165,12 @@ Status: 200 OK
 
 ### Ver versión de la API:
 ```
-$ curl http://localhost:8000/users/count
+$ curl http://localhost:8000/version
 ```
 Respuesta:
 ```
 Status: 200 OK
 
-"Version API: 0.1.2"
+"Version API: 0.1.3"
 ```
 ===
