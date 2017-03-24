@@ -55,7 +55,7 @@ OK (5 tests, 13 assertions)
 ```
 
 ### NOTA:
-Si todo salió bien, ya se puede comenzar a utilizar la API :simple_smile: . <br />
+Si todo salió bien, ya se puede comenzar a utilizar la API :smiley:. <br />
 Se puede acceder localmente al proyecto, ingresando a tu [localhost](http://localhost:8000/users).
 
 
