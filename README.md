@@ -23,24 +23,25 @@ $ php bin/console doctrine:fixtures:load
 ```
 
 ### CONEXIÓN MYSQL:
-Si se observa error al crear/conectar la base de datos, recuerde configurar la conexión MySQL.
+Si se observa algún error al crear/conectar la base de datos, recuerde configurar la conexión MySQL.
 Editar el archivo de configuración: app/config/parameters.yml
 ```
 parameters:
     database_host: 127.0.0.1
     database_port: null
     database_name: api-rest-symfony
-    database_user: YourDatabaseUser
-    database_password: YourDatabasePassword
+    **database_user: YourDatabaseUser**
+    **database_password: YourDatabasePass**
 ```
 
 ## PRUEBAS:
 
-Dentro de la raíz del proyecto, iniciar el servidor y ejecutar las pruebas con phpunit:
+Dentro de la raíz del proyecto, iniciar el servidor web interno de PHP y ejecutar las pruebas con phpunit:
 
 ```
 $ php bin/console server:start
 $ phpunit
+
 PHPUnit 5.4.6 by Sebastian Bergmann and contributors.
 
 .....                                                               5 / 5 (100%)
@@ -92,7 +93,6 @@ Status: 200 OK
     }
 ]
 ```
-===
 
 
 ### Ver usuario por Id:
@@ -108,7 +108,6 @@ Status: 200 OK
     "name": "Mirta García"
 }
 ```
-===
 
 
 ### Crear nuevo usuario:
@@ -121,7 +120,6 @@ Status: 200 OK
 
 "El usuario fue creado correctamente."
 ```
-===
 
 
 ### Actualizar usuario:
@@ -134,7 +132,6 @@ Status: 200 OK
 
 "El usuario fue actualizado correctamente."
 ```
-===
 
 
 ### Eliminar usuario:
@@ -147,7 +144,6 @@ Status: 200 OK
 
 "El usuario fue eliminado correctamente."
 ```
-===
 
 
 ### Ver cantidad de usuarios:
@@ -160,7 +156,6 @@ Status: 200 OK
 
 "Cantidad de usuarios: 32"
 ```
-===
 
 
 ### Ver versión de la API:
@@ -173,4 +168,3 @@ Status: 200 OK
 
 "Version API: 0.1.3"
 ```
-===
