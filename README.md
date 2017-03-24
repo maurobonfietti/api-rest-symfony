@@ -24,15 +24,17 @@ $ php bin/console doctrine:fixtures:load
 
 ### CONEXIÓN MYSQL:
 Si se observa algún error al crear/conectar la base de datos, recuerde configurar la conexión MySQL.
-Completar con su **Usuario** y **Password**.
-Editar el archivo de configuración: app/config/parameters.yml
+
+Completar con su **usuario** y **password** de **MySQL**.
+
+Editar <br /> el archivo de configuración: app/config/parameters.yml
 ```
 parameters:
     database_host: 127.0.0.1
     database_port: null
     database_name: api-rest-symfony
-    database_user: **YourDatabaseUser**
-    database_password: **YourDatabasePass**
+    database_user: YourDatabaseUser
+    database_password: YourDatabasePass
 ```
 
 ## PRUEBAS:
@@ -55,7 +57,8 @@ OK (5 tests, 13 assertions)
 
 ### NOTA:
 Si todo salió bien, ya se puede comenzar a utilizar la API :smile:
-Se puede acceder localmente al proyecto, ingresando a: [localhost:8000/users](http://localhost:8000/users).
+<br />
+Se puede acceder localmente al proyecto, ingresando a tu [localhost](http://localhost:8000/users).
 
 
 ## MODO DE USO:
