@@ -23,9 +23,9 @@ $ php bin/console doctrine:fixtures:load
 ```
 
 ### CONEXIÓN MYSQL:
-Si se observa algún error al crear/conectar la base de datos, recuerde configurar la conexión MySQL.<br />
-Completar con su **usuario** y **password** de **MySQL**.<br />
-Editar el archivo de configuración: app/config/parameters.yml
+Si se observa algún error al crear/conectar la base de datos, hay que configurar la conexión MySQL.<br />
+Completar con el *usuario* y *password* de **MySQL**.<br />
+Editar el archivo de configuración: `app/config/parameters.yml`
 ```
 parameters:
     database_host: 127.0.0.1
@@ -56,7 +56,9 @@ OK (5 tests, 13 assertions)
 
 ### NOTA:
 Si todo salió bien, ya se puede comenzar a utilizar la API :smile: <br />
-Se puede acceder localmente al proyecto, ingresando a tu url <a href="http://localhost:8000/users" target="_blank">local</a>
+Se puede acceder localmente al proyecto, ingresando a tu url 
+<a href="http://localhost:8000/users" target="_blank">local</a>
+[local](http://localhost:8000/users)
 
 
 ## MODO DE USO:
