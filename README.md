@@ -24,19 +24,20 @@ $ php bin/console doctrine:fixtures:load
 
 ### CONEXIÓN MYSQL:
 Si se observa algún error al crear/conectar la base de datos, recuerde configurar la conexión MySQL.
+Completar con su **Usuario** y **Password**.
 Editar el archivo de configuración: app/config/parameters.yml
 ```
 parameters:
     database_host: 127.0.0.1
     database_port: null
     database_name: api-rest-symfony
-    **database_user: YourDatabaseUser**
-    **database_password: YourDatabasePass**
+    database_user: **YourDatabaseUser**
+    database_password: **YourDatabasePass**
 ```
 
 ## PRUEBAS:
 
-Dentro de la raíz del proyecto, iniciar el servidor web interno de PHP y ejecutar las pruebas con phpunit:
+Dentro de la raíz del proyecto, iniciar el servidor web interno de PHP y ejecutar las pruebas con `phpunit`:
 
 ```
 $ php bin/console server:start
@@ -53,8 +54,8 @@ OK (5 tests, 13 assertions)
 ```
 
 ### NOTA:
-Si todo salió bien, ya se puede comenzar a utilizar la API :-)
-Se puede acceder localmente al proyecto, ingresando a: http://localhost:8000/users
+Si todo salió bien, ya se puede comenzar a utilizar la API :smile:
+Se puede acceder localmente al proyecto, ingresando a: [localhost:8000/users](http://localhost:8000/users).
 
 
 ## MODO DE USO:
