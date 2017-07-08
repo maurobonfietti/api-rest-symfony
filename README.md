@@ -7,7 +7,7 @@ Un ejemplo de API REST con Symfony3.
 
 En la ruta preferida, descargar el proyecto:
 
-```
+```bash
 $ git clone https://github.com/maurobonfietti/api-rest-symfony.git
 $ cd api-rest-symfony/
 $ composer install
@@ -16,7 +16,7 @@ $ composer install
 
 Crear base de datos, actualizar schema y completar con datos de prueba:
 
-```
+```bash
 $ php bin/console doctrine:database:create
 $ php bin/console doctrine:schema:update --force
 $ php bin/console doctrine:fixtures:load
@@ -40,8 +40,7 @@ parameters:
 
 Dentro de la raíz del proyecto, iniciar el servidor web interno de PHP y ejecutar las pruebas con `phpunit`:
 
-```
-$ php bin/console server:start
+```bash
 $ phpunit
 
 PHPUnit 5.4.6 by Sebastian Bergmann and contributors.
@@ -55,6 +54,12 @@ OK (5 tests, 13 assertions)
 ```
 
 ### NOTA:
+Se puede iniciar el servidor web interno de PHP ejecutando:
+
+```bash
+$ php bin/console server:start
+```
+
 Si todo salió bien, ya se puede comenzar a utilizar la API :smiley:. <br />
 Se puede acceder localmente al proyecto, ingresando a tu [localhost](http://localhost:8000/users).
 
